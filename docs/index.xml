@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Techniche</title>
-    <link>https://adiaholic.github.io/</link>
-    <description>Recent content on Techniche</description>
+    <title>Docs on Techniche</title>
+    <link>https://adiaholic.github.io/docs/</link>
+    <description>Recent content in Docs on Techniche</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 06 Jan 2024 11:49:46 -0700</lastBuildDate>
-    <atom:link href="https://adiaholic.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adiaholic.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rust</title>
-      <link>https://adiaholic.github.io/posts/post-one/</link>
+      <link>https://adiaholic.github.io/docs/post-one/</link>
       <pubDate>Sat, 06 Jan 2024 11:49:46 -0700</pubDate>
-      <guid>https://adiaholic.github.io/posts/post-one/</guid>
+      <guid>https://adiaholic.github.io/docs/post-one/</guid>
       <description>Why Rust for building a Desktop client ? Rust was chosen for developing the desktop OCR client due to its unique combination of performance, safety, and low-level control. While Java and Python are popular languages, they often come with higher overhead and slower execution compared to Rust. Rust&amp;rsquo;s memory safety features, such as ownership and borrowing, minimize the risk of bugs and crashes, crucial for a robust OCR application. Additionally, Rust&amp;rsquo;s ability to interact with C/C++ libraries seamlessly provides access to efficient image processing libraries, enhancing performance.</description>
     </item>
   </channel>
