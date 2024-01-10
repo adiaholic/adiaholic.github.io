@@ -37,8 +37,61 @@
 <p>I have this executable called SwiftOCR-Vision which can be used to extract texts from images and get it&rsquo;s box data.</p>
 <p>Github: <a href="https://github.com/adiaholic/SwiftOCR-Vision">https://github.com/adiaholic/SwiftOCR-Vision</a></p>
 <p>To build this project I researched a lot of other libraries and framework and below is an overview of some of the stuff I tried.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<h3 id="text-recognition-with-tesseract-hugging-faces-candle-and-apple-vision-kit">Text Recognition with Tesseract, Hugging Face&rsquo;s Candle, and Apple Vision Kit</h3>
+<p>In this blog, we will explore text recognition using Tesseract in Python, Hugging Face&rsquo;s Candle in Rust, and Apple&rsquo;s Vision Kit in Swift. We&rsquo;ll cover the basics of each approach and provide code examples for implementing text recognition in these languages.</p>
+<h3 id="text-recognition-with-tesseract-in-python">Text Recognition with Tesseract in Python</h3>
+<p>Tesseract is a popular open-source OCR (Optical Character Recognition) engine that supports over 100 languages. In Python, you can use the <code>pytesseract</code> library to interface with Tesseract and perform text recognition on images.</p>
+<p>Here&rsquo;s a simple example of using Tesseract in Python:</p>
+<pre tabindex="0"><code>python
+import pytesseract
+from PIL import Image
+Load an image using PIL
+image = Image.open(&#39;image.jpg&#39;)
+Perform text recognition using Tesseract
+text = pytesseract.image_to_string(image)
+Print the recognized text
+print(text)
+</code></pre><h3 id="text-recognition-with-hugging-faces-candle-in-rust">Text Recognition with Hugging Face&rsquo;s Candle in Rust</h3>
+<p>Hugging Face&rsquo;s Candle is a Rust library for natural language processing tasks, including text recognition. It provides a high-level interface for using pre-trained models and performing text recognition tasks in Rust.</p>
+<p>Here&rsquo;s a basic example of using Candle for text recognition in Rust:</p>
+<pre tabindex="0"><code>rust
+use candle::text_recognition;
+
+fn main() {
+let image_path = &#34;image.jpg&#34;;
+let recognized_text = text_recognition::recognize_text(image_path);
+println!(&#34;{}&#34;, recognized_text);
+}
+</code></pre><h3 id="text-recognition-with-apple-vision-kit-in-swift">Text Recognition with Apple Vision Kit in Swift</h3>
+<p>Apple&rsquo;s Vision Kit provides classes and APIs for performing image analysis and computer vision tasks, including text recognition. In Swift, you can use Vision Kit to recognize text in images captured using the device&rsquo;s camera or loaded from the device&rsquo;s storage.</p>
+<p>Here&rsquo;s a simple example of using Vision Kit for text recognition in Swift:</p>
+<pre tabindex="0"><code>swift
+import Vision
+import UIKit
+
+func recognizeText(in image: UIImage) {
+guard let cgImage = image.cgImage else { return }
+
+let request = VNRecognizeTextRequest { request, error in
+guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
+for observation in observations {
+let recognizedText = observation.topCandidates(1).first?.string ?? &#34;&#34;
+print(recognizedText)
+}
+}
+
+let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+do {
+try handler.perform([request])
+} catch {
+print(error)
+}
+}
+
+// Usage
+let image = UIImage(named: &#34;image.jpg&#34;)!
+recognizeText(in: image)
+</code></pre><p>By following the examples provided in this blog, you can start performing text recognition using Tesseract in Python, Hugging Face&rsquo;s Candle in Rust, and Apple&rsquo;s Vision Kit in Swift. Each approach has its own strengths and use cases, so choose the one that best fits your requirements.</p>
 
 			</div>
 		</article>
