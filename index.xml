@@ -6,8 +6,15 @@
     <description>Recent content on Techniche</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jan 2024 11:49:46 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jan 2024 10:51:23 +0530</lastBuildDate>
     <atom:link href="https://adiaholic.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OCR is cool</title>
+      <link>https://adiaholic.github.io/posts/post-two/</link>
+      <pubDate>Wed, 10 Jan 2024 10:51:23 +0530</pubDate>
+      <guid>https://adiaholic.github.io/posts/post-two/</guid>
+      <description>OCR I have worked on a project to develop an OCR (Optical Character Recognition) solution using Swift and the Vision framework. The main.swift file contains the core code for performing text recognition in images, utilizing the VNRecognizeTextRequest class provided by Apple&amp;rsquo;s Vision framework. This project aims to provide a straightforward and efficient OCR solution for Swift developers, leveraging the power of machine learning and computer vision technologies.&#xA;I have this executable called SwiftOCR-Vision which can be used to extract texts from images and get it&amp;rsquo;s box data.</description>
+    </item>
     <item>
       <title>Fun with Rust</title>
       <link>https://adiaholic.github.io/posts/post-one/</link>
