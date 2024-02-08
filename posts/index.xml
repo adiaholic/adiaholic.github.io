@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Techniche</title>
-    <link>adiaholic.github.io/posts/</link>
+    <link>https://adiaholic.github.io/posts/</link>
     <description>Recent content in Posts on Techniche</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Feb 2024 21:23:46 -0700</lastBuildDate>
-    <atom:link href="adiaholic.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://adiaholic.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Concurrency and Parallelism using Rust</title>
-      <link>adiaholic.github.io/posts/post-three/</link>
+      <link>https://adiaholic.github.io/posts/post-three/</link>
       <pubDate>Tue, 06 Feb 2024 21:23:46 -0700</pubDate>
-      <guid>adiaholic.github.io/posts/post-three/</guid>
+      <guid>https://adiaholic.github.io/posts/post-three/</guid>
       <description>Concurrency and Parallelism in Rust Rust is a powerful language for building concurrent and parallel applications. It provides several tools and libraries to manage concurrent tasks and parallel execution. Two of the most important ones are Arc and Mutex.&#xA;Arc (Atomic Reference Counting) is a thread-safe reference-counting pointer. It allows multiple threads to share ownership of a value, increasing performance and reducing memory usage. Mutex is a mutual exclusion primitive that provides a safe way to share mutable data between threads.</description>
     </item>
     <item>
       <title>OCR is cool</title>
-      <link>adiaholic.github.io/posts/post-two/</link>
+      <link>https://adiaholic.github.io/posts/post-two/</link>
       <pubDate>Wed, 10 Jan 2024 10:51:23 +0530</pubDate>
-      <guid>adiaholic.github.io/posts/post-two/</guid>
+      <guid>https://adiaholic.github.io/posts/post-two/</guid>
       <description>OCR I have worked on a project to develop an OCR (Optical Character Recognition) solution using Swift and the Vision framework. The main.swift file contains the core code for performing text recognition in images, utilizing the VNRecognizeTextRequest class provided by Apple&amp;rsquo;s Vision framework. This project aims to provide a straightforward and efficient OCR solution for Swift developers, leveraging the power of machine learning and computer vision technologies.&#xA;I have this executable called SwiftOCR-Vision which can be used to extract texts from images and get it&amp;rsquo;s box data.</description>
     </item>
     <item>
       <title>Fun with Rust</title>
-      <link>adiaholic.github.io/posts/post-one/</link>
+      <link>https://adiaholic.github.io/posts/post-one/</link>
       <pubDate>Sat, 06 Jan 2024 11:49:46 -0700</pubDate>
-      <guid>adiaholic.github.io/posts/post-one/</guid>
+      <guid>https://adiaholic.github.io/posts/post-one/</guid>
       <description>Why Rust for building a Desktop client ? Rust was chosen for developing the desktop OCR client due to its unique combination of performance, safety, and low-level control. While Java and Python are popular languages, they often come with higher overhead and slower execution compared to Rust. Rust&amp;rsquo;s memory safety features, such as ownership and borrowing, minimize the risk of bugs and crashes, crucial for a robust OCR application. Additionally, Rust&amp;rsquo;s ability to interact with C/C++ libraries seamlessly provides access to efficient image processing libraries, enhancing performance.</description>
     </item>
   </channel>
