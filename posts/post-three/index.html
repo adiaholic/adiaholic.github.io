@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<style type=text/css>body{font-family:monospace;}</style>
+	<title>Concurrency and Parallelism using Rust</title>
+	
+	
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	===============<br>
+	== <a href="http://127.0.0.1:8080/">Techniche</a> ==<br>
+	===============
+	<div style="float: right;">Unveiling the Nexus of Tech and Self-Reflection</div><br>
+	<p>
+	<nav>
+			<a href="/"><b>Start</b></a>.
+			
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Concurrency and Parallelism using Rust</h1>
+			<b><time>06.02.2024 21:23</time></b>
+		       
+
+			<div>
+				<!-- raw HTML omitted -->
+<h1 id="concurrency-and-parallelism-in-rust">Concurrency and Parallelism in Rust</h1>
+<p>Rust is a powerful language for building concurrent and parallel applications. It provides several tools and libraries to manage concurrent tasks and parallel execution. Two of the most important ones are Arc and Mutex.</p>
+<p>Arc (Atomic Reference Counting) is a thread-safe reference-counting pointer. It allows multiple threads to share ownership of a value, increasing performance and reducing memory usage. Mutex is a mutual exclusion primitive that provides a safe way to share mutable data between threads.</p>
+<p>One of the most common patterns for concurrent and parallel programming in Rust is the reactor design pattern. This pattern is used to handle multiple asynchronous events in a single thread. It is often used in network programming, where a single thread can handle multiple connections at the same time.</p>
+<p>Here&rsquo;s a simple example of a reactor in Rust:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">use</span> std::sync::{Arc, Mutex};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">use</span> std::thread;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Reactor</span> {
+</span></span><span style="display:flex;"><span>    events: <span style="color:#a6e22e">Arc</span><span style="color:#f92672">&lt;</span>Mutex<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span>Event<span style="color:#f92672">&gt;&gt;&gt;</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">impl</span> Reactor {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">new</span>() -&gt; <span style="color:#a6e22e">Self</span> {
+</span></span><span style="display:flex;"><span>        Reactor {
+</span></span><span style="display:flex;"><span>            events: <span style="color:#a6e22e">Arc</span>::new(Mutex::new(Vec::new())),
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">add_event</span>(<span style="color:#f92672">&amp;</span>self, event: <span style="color:#a6e22e">Event</span>) {
+</span></span><span style="display:flex;"><span>        self.events.lock().unwrap().push(event);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">run</span>(<span style="color:#f92672">&amp;</span>self) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">loop</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> event <span style="color:#f92672">=</span> self.events.lock().unwrap().pop();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Some(event) <span style="color:#f92672">=</span> event {
+</span></span><span style="display:flex;"><span>                self.handle_event(event);
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                thread::yield_now();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">handle_event</span>(<span style="color:#f92672">&amp;</span>self, event: <span style="color:#a6e22e">Event</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Handle the event here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this example, the Reactor struct manages a list of events. The add_event method is used to add an event to the list, and the run method is used to handle the events. The handle_event method is called for each event, and it is responsible for handling the event.</p>
+<p>This is just a simple example, but it demonstrates the power of Rust for concurrent and parallel programming. With its strong type system and powerful concurrency primitives, Rust is a great choice for building high-performance, concurrent applications.</p>
+<p>Now, let&rsquo;s discuss the difference between concurrency and parallelism.</p>
+<p>Concurrency and parallelism are two distinct concepts in the world of programming. Concurrency refers to the ability of a system to handle multiple tasks at the same time. These tasks can start, run, and complete in overlapping time periods. Parallelism, on the other hand, refers to the ability of a system to execute multiple tasks at the same time. These tasks can start, run, and complete in overlapping time periods.</p>
+<p>In simpler terms, concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.</p>
+<p>In Rust, concurrency is achieved through the use of threads, while parallelism is achieved through the use of multiple threads. The reactor design pattern we discussed earlier is a great example of concurrency in Rust. It allows a single thread to handle multiple asynchronous events at the same time. If we were to use multiple threads to handle these events, that would be an example of parallelism.</p>
+<p>In summary, concurrency and parallelism are two important concepts in the world of programming. Rust provides powerful tools and libraries to manage both, making it a great choice for building high-performance, concurrent applications.</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/post-three/">Concurrency and Parallelism using Rust</a></li>
+				
+				<li><a href="/posts/post-two/">OCR is cool</a></li>
+				
+				<li><a href="/posts/post-one/">Fun with Rust</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<p>
+	<a href="https://github.com/adiaholic"><b>Github</b></a>
+	<a href="https://www.linkedin.com/in/adityaborikar/"><b>Linkedin</b></a>
+	</p>
+	<p>
+	&copy; 2024 <b>Aditya Borikar</b>
+	</p>
+</footer>
+
+</body>
+</html>
